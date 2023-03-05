@@ -36,6 +36,11 @@ public class Account
         this.admin = true;
     }
 
+    public void removeAdmin()
+    {
+        this.admin = false;
+    }
+
     public boolean checkAdmin()
     {
         return admin;
@@ -61,6 +66,7 @@ public class Account
  *  change password: name.changePassword(String);
  *  get password: name.getPassword();
  *  make the account and admin account: name.admin();
+ *  take away admin priveleges: name.removeAdmin();
  *  check if account is an admin: name.checkAdmin();
  *  check credentials: name.checkCredential();
  */
