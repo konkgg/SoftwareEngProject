@@ -9,6 +9,12 @@ public class TeamObject
         this.points = 0;
     }
 
+    public TeamObject(String name, int points)
+    {
+        this.teamName = name;
+        this.points = points;
+    }
+
 
     public String getName()
     {
