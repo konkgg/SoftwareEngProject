@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Database
 {
 
-    private ArrayList<TeamObject> teams = new ArrayList<TeamObject>();
+    public ArrayList<TeamObject> teams = new ArrayList<TeamObject>();
     private ArrayList<Account> accounts = new ArrayList<Account>();
 //_______________________________________________________________________________________Constructor
     public Database() throws IOException
