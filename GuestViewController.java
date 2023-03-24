@@ -16,11 +16,11 @@ public class GuestViewController {
          System.out.println(data.getTeamsList());
          this.leaderboard = new Label[data.teams.size()];
          
-         /*System.out.println(data.teams.get(1).getPoints()); //Don't mind this, was checking something
+         /* System.out.println(data.teams.get(1).getPoints()); //Don't mind this, was checking something
          
-         if (data.teams.get(1).getPoints() < data.teams.get(2).getPoints())
+         if (data.teams.get(1).getPoints() > data.teams.get(2).getPoints())
             System.out.println("Epic");
-         else if (data.teams.get(1).getPoints() > data.teams.get(2).getPoints())
+         else if (data.teams.get(1).getPoints() < data.teams.get(2).getPoints())
             System.out.println("Wowzers");
          
          TeamObject newt = data.getTeam("team" + 5);
@@ -29,11 +29,24 @@ public class GuestViewController {
          
          data.replaceTeam("team" + 5, temp);
          data.replaceTeam("team" + 1, newt);
-         data.replaceTeam("temp", oldt);*/
+         data.replaceTeam("temp", oldt); */
          
-         for(int i = 1; i < data.teams.size(); i++) { 
-            int j = i - 1;
-            
+         for(int i = 0; i < data.teams.size(); i++) {
+            for(int j = 0; j < data.teams.size(); j++) {
+               TeamObject newt;
+               TeamObject oldt;
+               if (data.teams.get(i).getPoints() > data.teams.get(j).getPoints()) {
+                  newt = data.teams.get(j);
+                  oldt = data.teams.get(i);
+                  
+                  data.teams.set(j, oldt);
+                  data.teams.set(i, newt);
+                  
+                  System.out.println("Swap");
+               }
+               else
+                  System.out.println("Epic");  
+            }
          }
          
          for(int i = 0; i < data.teams.size(); i++) {
