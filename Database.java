@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Database
 {
 
-    public ArrayList<TeamObject> teams = new ArrayList<TeamObject>();
+    private ArrayList<TeamObject> teams = new ArrayList<TeamObject>();
     private ArrayList<Account> accounts = new ArrayList<Account>();
 //_______________________________________________________________________________________Constructor
     public Database() throws IOException
@@ -118,24 +118,14 @@ public class Database
 
 
 //________________________________________________________________________________Database editing methods
-    public String getTeamsList()
+    public ArrayList<TeamObject> getTeamsList()
     {
-        String output = "";
-        for(int i = 0; i < teams.size(); i++)
-        {
-            output += String.format("%nTeamName: %s, Points: %s%n", teams.get(i).getName(), teams.get(i).getPoints());
-        }
-        return output;
+        return teams;           //WILL RETURN REFERENCE TYPES. NOT NAMES.
     }
 
-    public String getAccountsList()
+    public ArrayList<Account> getAccountsList()
     {
-        String output = "";
-        for(int i = 0; i < accounts.size(); i++)
-        {
-            output += String.format("%nUsername: %s, Password: %s%n", accounts.get(i).getUsername(), accounts.get(i).getPassword());
-        }
-        return output;
+        return accounts;        //WILL RETURN REFERENCE TYPES. NOT NAMES.
     }
 
     public int getTeamListSize()
@@ -263,6 +253,7 @@ public class Database
         - I gave mine the name data. So i use data.(FUNCTION NAME) for the following functions
 
     getTeamsList() | getAccountsList()
+        - RETURNS REFERENCE OBJECTS. USE getName() (teamObject) OR getUsername() (account) TO GET THE NAME
         - returns the list of teams or accounts.
         - Will return the reference objects. Not names, points or passwords. 
         - Must use .getName(), .getPassword() if you want them. Can only do one at a time.

@@ -5,7 +5,7 @@ public class TestDatabase
     public static void main(String[] args) throws IOException 
     {
         Database data = new Database(); //create new database object
-        System.out.println("Teams: " + data.getTeamsList() + " Size: " + data.getTeamListSize());   //get List and size methods
+        System.out.println("Teams: " + data.getTeamsList() + " Size: " + data.getTeamListSize());   //get List and size methods 
         System.out.println("Accounts: " + data.getAccountsList() + " Size: " + data.getAccountListSize()); //^
         data.addTeam("New Team", 25);   //add a new team
         data.addAccount("New Account", "Password", false);  //add a new account
