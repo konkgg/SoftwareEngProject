@@ -14,7 +14,7 @@ public class GuestViewController {
       try {
          Database data = new Database();
          System.out.println(data.getTeamsList());
-         this.leaderboard = new Label[data.teams.size()];
+         this.leaderboard = new Label[data.getTeamsList().size()];
          
          /* System.out.println(data.teams.get(1).getPoints()); //Don't mind this, was checking something
          
@@ -31,28 +31,28 @@ public class GuestViewController {
          data.replaceTeam("team" + 1, newt);
          data.replaceTeam("temp", oldt); */
          
-         for(int i = 0; i < data.teams.size(); i++) {
-            for(int j = 0; j < data.teams.size(); j++) {
+         for(int i = 0; i < data.getTeamsList().size(); i++) {
+            for(int j = 0; j < data.getTeamsList().size(); j++) {
                TeamObject newt;
                TeamObject oldt;
-               if (data.teams.get(i).getPoints() > data.teams.get(j).getPoints()) {
-                  newt = data.teams.get(j);
-                  oldt = data.teams.get(i);
+               if (data.getTeamsList().get(i).getPoints() > data.getTeamsList().get(j).getPoints()) {
+                  newt = data.getTeamsList().get(j);
+                  oldt = data.getTeamsList().get(i);
                   
-                  data.teams.set(j, oldt);
-                  data.teams.set(i, newt);
+                  data.getTeamsList().set(j, oldt);
+                  data.getTeamsList().set(i, newt);
                   
                   System.out.println("Swap");
                }
                else
-                  System.out.println("Oh No");  
+                  System.out.println("Epic");  
             }
          }
          
-         for(int i = 0; i < data.teams.size(); i++) {
+         for(int i = 0; i < data.getTeamsList().size(); i++) {
             leaderboard[i] = new Label();
             leaderboard[i].setFont(new Font("Jokerman", 13));
-            leaderboard[i].setText(" Rank #" + (i+1) + " | " + data.teams.get(i).getName() + " | Score: " + data.teams.get(i).getPoints() + "\n\n");
+            leaderboard[i].setText(" Rank #" + (i+1) + " | " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n\n");
             LeaderboardVBox.getChildren().add(leaderboard[i]);
          }
       }
