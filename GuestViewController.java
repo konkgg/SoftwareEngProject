@@ -45,7 +45,7 @@ public class GuestViewController {
                   System.out.println("Swap");
                }
                else
-                  System.out.println("Epic");  
+                  System.out.println("Oh No");  
             }
          }
          
