@@ -28,7 +28,7 @@ public class ChessBracketViewerController {
     void guestPressed(ActionEvent event) {
     try
     {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("ChessBracketViewerFXML.fxml")); // change the fxml to the second scene
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("GuestViewFXML.fxml")); // change the fxml to the second scene
       AnchorPane root = (AnchorPane)loader.load();
       Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
       Scene scene = new Scene(root);
