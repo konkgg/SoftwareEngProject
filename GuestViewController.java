@@ -1,6 +1,5 @@
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
@@ -8,6 +7,7 @@ public class GuestViewController {
 
    @FXML
    private VBox LeaderboardVBox;
+   private VBox ScheduleVBox;
    private Label[] leaderboard;
        
    public void initialize() {
@@ -45,14 +45,14 @@ public class GuestViewController {
                   System.out.println("Swap");
                }
                else
-                  System.out.println("Epic");  
+                  System.out.println("Oh No");  
             }
          }
          
          for(int i = 0; i < data.getTeamsList().size(); i++) {
             leaderboard[i] = new Label();
-            leaderboard[i].setFont(new Font("Jokerman", 13));
-            leaderboard[i].setText(" Rank #" + (i+1) + " | " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n\n");
+            leaderboard[i].setFont(new Font("Georgia", 12));
+            leaderboard[i].setText("   " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n\n");
             LeaderboardVBox.getChildren().add(leaderboard[i]);
          }
       }
