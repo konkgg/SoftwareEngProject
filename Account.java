@@ -57,6 +57,18 @@ public class Account
             return false;
         }
     }
+
+    public boolean checkCredential(String username, String password)
+    {
+        boolean credential = false;
+
+        if(username.equals(this.username) && password.equals(this.password))
+        {
+            credential = true;
+        }
+
+        return credential;
+    }
 }
 
 /*

@@ -8,6 +8,7 @@ public class ScheduleObject {
     public ScheduleObject()
     {
         this.tourneyName = "New Schedule";
+        schedule = new ArrayList<WeekObject>();
     }
 
     public void setName(String newName)
@@ -18,6 +19,12 @@ public class ScheduleObject {
     public String getName()
     {
         return tourneyName;
+    }
+
+    public void addWeek()
+    {
+        WeekObject newWeek = new WeekObject(getTotalWeeks()+1);
+        schedule.add(newWeek);
     }
 
     public void addWeek(int weekNumber)
@@ -51,6 +58,21 @@ public class ScheduleObject {
 
         return weekIndex;
     }
+
+    public WeekObject getWeek(int weekNumber)
+    {
+        int weekIndex = -1;
+        for(int i = 0; i < schedule.size(); i++)
+        {
+            if(schedule.get(i).getWeek() == weekNumber)
+            {
+                weekIndex = i;
+                break;
+            }
+        }
+
+        return schedule.get(weekIndex);
+    }
 }
 
 /*
@@ -63,6 +85,9 @@ public class ScheduleObject {
     getName()
         - get the name
 
+    addWeek()
+        - creates a new week at the end
+    
     addWeek(int weekNumber)
         - create a new week and add it to the list
 

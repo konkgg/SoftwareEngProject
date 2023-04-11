@@ -6,19 +6,28 @@ public class WeekObject {
     private ArrayList<TeamObject> matches;
     private ArrayList<TeamObject> vsMatches;
 
-    public WeekObject() //new schedule constructor
+    public WeekObject()
     {
         this.week = 1;
+        matches = new ArrayList<TeamObject>();
+        vsMatches = new ArrayList<TeamObject>();
     }
 
     public WeekObject(int week)
     {
         this.week = week;
+        matches = new ArrayList<TeamObject>();
+        vsMatches = new ArrayList<TeamObject>();
     }
 
     public int getWeek()
     {
         return week;
+    }
+
+    public int getMatchesSize()
+    {
+        return matches.size();
     }
 
     public void newMatch(TeamObject team, TeamObject teamTwo)
@@ -126,6 +135,9 @@ public class WeekObject {
 
     getWeek()
         - returns the week
+
+    getMatchesSize()
+        - returns the number of matches in the given week
 
     newMatch(String teamName, String teamNameTwo)
         - input two teams into method

@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TestDatabase
 {
@@ -27,6 +28,46 @@ public class TestDatabase
 
         data.addPoints("temp", 10); //add points
 
+        ScheduleObject schedule = data.getSchedule();   //reference object
+        schedule.setName("Spring Tourney");
+        System.out.printf("Welcome to the %s!%n", schedule.getName());
+        System.out.printf("This tourney will span a total of %d weeks!%n", schedule.getTotalWeeks());
+        System.out.printf("Let's take a took at the week %d matches!%n", schedule.getWeek(4).getWeek());
+        TeamObject teamOne = new TeamObject("newTeamOne");
+        TeamObject teamTwo = new TeamObject("newTeamTwo");
+        schedule.getWeek(4).newMatch(teamOne, teamTwo);
+        System.out.printf("There are %d matches for week %d!%n", schedule.getWeek(4).getMatchesSize(), schedule.getWeek(4).getWeek());
+        System.out.printf("The matches for this week are as follows: %s%n", declareAllMatches(schedule.getWeek(4).getAllMatches()));
+        System.out.println(declareAllMatches(data.getSchedule().getWeek(4).getAllMatches()));   //creating a reference object for schedule will work on the original
+
+
         data.updateCSV();
     }
+
+    public static String declareSingleMatch(ArrayList<TeamObject> match)
+    {
+        String declaration = "";
+        String firstTeam = match.get(0).getName();
+        String secondTeam = match.get(1).getName();
+        declaration = String.format("%s vs %s ", firstTeam, secondTeam);
+        return declaration;
+    }
+
+    public static String declareAllMatches(ArrayList<TeamObject> match)
+    {
+        String declaration = "";
+        
+        for(int i = 0; i < match.size() - 1; i++)
+        {
+            ArrayList<TeamObject> currentMatch = new ArrayList<>();
+            currentMatch.add(match.get(i));
+            currentMatch.add(match.get(i+1));
+            declaration += declareSingleMatch(currentMatch);
+            i++;
+        }
+
+        return declaration;
+    }
 }
+
+//schedule object does not have a matchmaking method. This will have to be done manually.

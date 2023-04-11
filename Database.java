@@ -6,6 +6,7 @@ public class Database
 
     private ArrayList<TeamObject> teams = new ArrayList<TeamObject>();
     private ArrayList<Account> accounts = new ArrayList<Account>();
+    private ScheduleObject schedule = new ScheduleObject();
 //_______________________________________________________________________________________Constructor
     public Database() throws IOException
     {
@@ -83,6 +84,61 @@ public class Database
         {
             e.printStackTrace();
         }
+//___________________________________________________________________________________ schedule file reader/writer start here
+
+        try(FileReader fr = new FileReader("schedule.csv");
+        BufferedReader br = new BufferedReader(fr))
+        {
+        int currentWeek = 0;
+        String line = br.readLine();
+        while(line != null)
+        {
+            boolean newWeek = false;
+            for(int i = 1; i <= 10; i++)
+            {
+                if(line.equals("Week" + i))
+                {
+                    newWeek = true;
+                    currentWeek = i;
+                    schedule.addWeek(i);
+                    break;
+                }
+            }
+
+            if(newWeek)
+            {
+                line = br.readLine();
+                newWeek = false;
+                continue;
+            }
+
+            int commaIndex = line.indexOf(",");
+
+            TeamObject firstTeam = new TeamObject(line.substring(0, commaIndex));
+            TeamObject opposingTeam = new TeamObject(line.substring(commaIndex + 1));
+                        
+            schedule.getWeek(currentWeek).newMatch(firstTeam, opposingTeam);
+            line = br.readLine();
+        }
+        br.close();
+        fr.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            try(FileWriter fw = new FileWriter("schedule.csv");
+                BufferedWriter out = new BufferedWriter(fw))
+        {
+            out.close();
+        }
+        catch(IOException ex)
+        {
+            System.out.printf("IO Exception:  %s", ex.getMessage());
+        }
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 //___________________________________________________________________________________Update CSV File (will replace old file with info in arraylists)
 
@@ -108,6 +164,34 @@ public class Database
             for(int i = 0; i < accounts.size(); i++)
             {
                 out.write(String.format("%s,%s%n",accounts.get(i).getUsername(), accounts.get(i).getPassword()));
+            }
+        }
+        catch(IOException ex)
+        {
+            System.out.printf("IO Exception:  %s", ex.getMessage());
+        }
+
+        try(FileWriter fw = new FileWriter("schedule.csv");
+            BufferedWriter out = new BufferedWriter(fw))
+        {
+            ArrayList<TeamObject> allMatches = new ArrayList<>();
+
+            out.write("Week1\n");
+
+            for(int i = 1; i <= schedule.getTotalWeeks(); i++)
+            {
+                allMatches = schedule.getWeek(i).getAllMatches();
+
+                for(int j = 0; j < allMatches.size() - 1; j++)
+                {
+                    out.write(String.format("%s,%s%n", allMatches.get(j).getName(), allMatches.get(j+1).getName()));
+                    j++;
+                }
+
+                if(i < schedule.getTotalWeeks())
+                {
+                    out.write(String.format("Week%d%n", i+1));
+                }
             }
         }
         catch(IOException ex)
@@ -244,6 +328,22 @@ public class Database
         team.addPoints(pointsGained);
         replaceTeam(additionTeam ,team);
     }
+
+    public ScheduleObject newSchedule()
+    {
+        ScheduleObject newSchedule = new ScheduleObject();
+        return newSchedule;
+    }
+
+    public void setSchedule(ScheduleObject newSchedule)
+    {
+        this.schedule = newSchedule;
+    }
+
+    public ScheduleObject getSchedule()
+    {
+        return schedule;
+    }
 }
 
 /*
@@ -278,6 +378,15 @@ public class Database
     addPoints("Team Name", int [POINTS TO BE ADDED])
         - Search for a team and add points to it's current total
         - We can discuss later what should happen if the account is not found.
+
+    newSchedule()
+        - Create a new shedule object and returns it
+
+    setSchedule()
+        - replace the schedule object in the database with a new one
+
+    getSchedule()
+        - retrieve the schedule object. Use this to edit the schedule
 
     updateCSV()
         - Takes current team and account lists and overwrites the CSV file.
