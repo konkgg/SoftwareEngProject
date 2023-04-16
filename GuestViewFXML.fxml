@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -47,7 +48,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <VBox fx:id="ScheduleVBox" prefHeight="317.0" prefWidth="478.0" />
+                              <HBox fx:id="ScheduleHBox" prefHeight="318.0" prefWidth="476.0" />
                            </children>
                         </AnchorPane>
                     </items>
