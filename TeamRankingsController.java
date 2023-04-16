@@ -4,14 +4,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-public class GuestViewController {
+public class TeamRankingsController {
 
-   @FXML
-   private VBox LeaderboardVBox;
-   private HBox ScheduleHBox;
-   private Label[] leaderboard;
-   private Label[] schedule;
-       
+    @FXML
+    private VBox LeaderboardVBox;
+    private Label[] leaderboard;
+
    public void initialize() {
       try {
          Database data = new Database();
@@ -45,11 +43,11 @@ public class GuestViewController {
             LeaderboardVBox.getChildren().add(leaderboard[i]);
          }
          
-         //Figure out how to deal with schedules
-         
       }
       catch(Exception e) {
          e.printStackTrace();
       }   
    }
+
+
 }

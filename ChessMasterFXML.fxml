@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChessMasterController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #9D0628;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #C4122F;">
+               <children>
+                  <Label layoutX="78.0" layoutY="38.0" text="Chess Master" textFill="#fff2f2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeButtonPressed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Home" textFill="#fff2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="RankingButton" mnemonicParsing="false" onAction="#RankingButtonPressed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Rankings" textFill="#fff2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="ScheduleButton" mnemonicParsing="false" onAction="#ScheduleButtonPressed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Schedule" textFill="#fff2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="TeamsButton" mnemonicParsing="false" onAction="#TeamsButtonPressed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Teams" textFill="#fff2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="AccountButton" mnemonicParsing="false" onAction="#AccountButtonPressed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent;" text="Account" textFill="#fff2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="250.0" layoutY="54.0" prefHeight="100.0" prefWidth="550.0" style="-fx-background-color: #FFF2F2;" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="GreetingLabel" layoutX="422.0" layoutY="66.0" text="Hello John" textFill="#c4122f" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ViewLabel" layoutX="14.0" layoutY="38.0" text="Current View" textFill="#c4122f" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Line endY="62.0" layoutY="38.0" startY="-38.0" stroke="#f88187" />
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="StackPaneView" layoutX="250.0" layoutY="100.0" prefHeight="500.0" prefWidth="550.0" />
+      <Line endX="800.0000610351562" endY="99.49998474121094" startY="100.0" stroke="#b5a8aa" />
+   </children>
+</AnchorPane>
