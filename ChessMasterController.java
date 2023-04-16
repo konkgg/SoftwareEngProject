@@ -14,7 +14,8 @@ public class ChessMasterController {
    
    //used
    private AnchorPane loginPane;
-   private AnchorPane TeamRankings;
+   private AnchorPane TeamRankingsPane;
+   private AnchorPane SchedulePane;
    
 
     @FXML
@@ -53,12 +54,12 @@ public class ChessMasterController {
 
     @FXML
     void RankingButtonPressed(ActionEvent event) {
-      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamRankings)).toFront();
+      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamRankingsPane)).toFront();
     }
 
     @FXML
     void ScheduleButtonPressed(ActionEvent event) {
-
+      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(SchedulePane)).toFront();
     }
 
     @FXML
@@ -73,9 +74,11 @@ public class ChessMasterController {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginFXML.fxml"));
       loginPane = (AnchorPane)loader.load();
       loader = new FXMLLoader(getClass().getResource("TeamRankingsFXML.fxml"));
-      TeamRankings = (AnchorPane)loader.load();
+      TeamRankingsPane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("ScheduleFXML.fxml"));
+      SchedulePane = (AnchorPane)loader.load();
       
-      StackPaneView.getChildren().addAll(loginPane,TeamRankings);
+      StackPaneView.getChildren().addAll(loginPane,TeamRankingsPane,SchedulePane);
     }
     catch(Exception e)
     {
