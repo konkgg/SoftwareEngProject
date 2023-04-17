@@ -21,7 +21,7 @@ public class ScheduleController {
          tourneyNameLabel.setText(schedule.getName());
 
          Label startLabel = new Label("     Week 1      ");
-         startLabel.setFont(new Font("Georgia", 12));
+         startLabel.setFont(new Font("Georgia", 15));
          startLabel.setUnderline(true);
          vbox.getChildren().add(startLabel);
 
@@ -35,7 +35,7 @@ public class ScheduleController {
             {
                Label matchLabel = new Label();
                matchLabel.setText(String.format("     %s vs %s%n%n", allMatches.get(j).getName(), allMatches.get(j+1).getName()));
-               matchLabel.setFont(new Font("Georgia", 12));
+               matchLabel.setFont(new Font("Georgia", 15));
                vbox.getChildren().add(matchLabel);
                j++;
             }
@@ -44,7 +44,7 @@ public class ScheduleController {
             {
                Label weekLabel = new Label();
                weekLabel.setText(String.format("     Week %d      %n", i+1));
-               weekLabel.setFont(new Font("Georgia", 12));
+               weekLabel.setFont(new Font("Georgia", 15));
                weekLabel.setUnderline(true);
                vbox.getChildren().add(weekLabel);
             }

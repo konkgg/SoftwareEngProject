@@ -1,6 +1,5 @@
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
@@ -14,7 +13,6 @@ public class TeamRankingsController {
       try {
          Database data = new Database();
          this.leaderboard = new Label[data.getTeamsList().size()];
-         //add relevant schedule related values
          
          //Sorting Teams by Score
          for(int i = 0; i < data.getTeamsList().size(); i++) {
@@ -38,8 +36,8 @@ public class TeamRankingsController {
          //Adding Teams to VBox
          for(int i = 0; i < data.getTeamsList().size(); i++) {
             leaderboard[i] = new Label();
-            leaderboard[i].setFont(new Font("Georgia", 12));
-            leaderboard[i].setText("   " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n\n");
+            leaderboard[i].setFont(new Font("Georgia", 15));
+            leaderboard[i].setText("\n      " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n");
             LeaderboardVBox.getChildren().add(leaderboard[i]);
          }
          
