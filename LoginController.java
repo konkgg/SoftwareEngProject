@@ -25,14 +25,14 @@ public class LoginController {
     void loginPressed(ActionEvent event) throws IOException{
         Database data = new Database();
         ArrayList<Account> accountsList = data.getAccountsList();
-        int accountIndex = 0;
+        Account thisAccount = new Account("null", "null");
         boolean correctCredentials = false;
 
         for(int i = 0; i < accountsList.size(); i++)
         {
             if(accountsList.get(i).checkCredential(usernameField1.getText(), passwordField1.getText()))
             {
-                accountIndex = i;
+                thisAccount = accountsList.get(i);
                 correctCredentials = true;
                 break;
             }
@@ -40,7 +40,6 @@ public class LoginController {
 
         if(correctCredentials)
         {
-            Account thisAccount = accountsList.get(accountIndex);
             System.out.println("Username:" + thisAccount.getUsername());
             System.out.println("Password:" + thisAccount.getPassword());
             System.out.println("Admin: " + thisAccount.checkAdmin());
