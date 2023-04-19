@@ -56,9 +56,17 @@ public class Database
            while(line != null)
            {
                 int commaIndex = line.indexOf(",");
+                int adminIndex = line.indexOf("$");
                 String newUser = line.substring(0, commaIndex);
-                String newPassword = line.substring(commaIndex + 1);
+                String newPassword = line.substring(commaIndex+1, adminIndex-1);
+                String admin = line.substring(adminIndex + 1);
                 Account newAccount = new Account(newUser, newPassword);
+                
+                if(admin.equals("true"))
+                {
+                    newAccount.admin();
+                }
+
                 this.accounts.add(newAccount);
                 line = br.readLine();
            }
@@ -72,7 +80,7 @@ public class Database
             {
                 Account newAccount = new Account("ADMIN", "PASSWORD");
                 newAccount.admin();
-                out.write(newAccount.getUsername() + "," + newAccount.getPassword());
+                out.write(newAccount.getUsername() + "," + newAccount.getPassword()+ ",$true");
                 out.close();
             }
             catch(IOException ex)
@@ -163,7 +171,7 @@ public class Database
         {
             for(int i = 0; i < accounts.size(); i++)
             {
-                out.write(String.format("%s,%s%n",accounts.get(i).getUsername(), accounts.get(i).getPassword()));
+                out.write(String.format("%s,%s,$%s%n",accounts.get(i).getUsername(), accounts.get(i).getPassword(), accounts.get(i).checkAdmin()));
             }
         }
         catch(IOException ex)

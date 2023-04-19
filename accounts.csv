@@ -1,9 +1,9 @@
-tempA,tempA
-account3,password3
-account4,password4
-account5,password5
-account6,password6
-account7,password7
-New Account,Password
-New Account,Password
-New Account,Password
+tempA,tempA,$false
+account3,password3,$true
+account4,password4,$true
+account5,password5,$false
+account6,password6,$true
+account7,password7,$false
+New Account,Password,$false
+New Account,Password,$false
+New Account,Password,$false
