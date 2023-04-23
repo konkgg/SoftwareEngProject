@@ -183,6 +183,29 @@ String bgColor = "#9D0628";
    {
       return db;
    }
+   public void updateDB()
+   {
+   try
+   {
+      db = new Database();
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginFXML.fxml"));
+      loginPane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("TeamRankingsFXML.fxml"));
+      TeamRankingsPane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("ScheduleFXML.fxml"));
+      SchedulePane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("TeamsFXML.fxml"));
+      TeamsPane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("TeamsAdminFXML.fxml"));
+      TeamsAdminPane = (AnchorPane)loader.load();
+      
+      StackPaneView.getChildren().addAll(loginPane,TeamRankingsPane,SchedulePane,TeamsPane,TeamsAdminPane);
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+   }
 
 }
 

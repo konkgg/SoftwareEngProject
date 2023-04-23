@@ -18,5 +18,6 @@
       <VBox fx:id="TeamsButtons" layoutX="174.0" layoutY="80.0" prefHeight="420.0" prefWidth="74.0" spacing="8.0" AnchorPane.leftAnchor="175.0" />
       <VBox fx:id="PointsButtons" layoutX="462.0" layoutY="80.0" prefHeight="420.0" prefWidth="74.0" spacing="8.0" AnchorPane.rightAnchor="20.0" />
       <VBox fx:id="PointsFields" layoutX="375.0" layoutY="80.0" prefHeight="420.0" prefWidth="74.0" spacing="8.0" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="165.0" layoutY="49.0" text="Please Close and reopen to finalize changes" />
    </children>
 </AnchorPane>
