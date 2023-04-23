@@ -10,43 +10,33 @@ public class ScheduleController {
     private Label tourneyNameLabel;
 
     @FXML
-    private VBox vbox;
+    private VBox LeaderboardVBox;
     
    public void initialize()
    {
+      LeaderboardVBox.setSpacing(10);
          try {
-         Database data = new Database();
-         ScheduleObject schedule = data.getSchedule();
-         schedule.setName("Dalton State College Chess Tournament");  //or give it a name with a user input
-         tourneyNameLabel.setText(schedule.getName());
+         ScheduleObject schedule = ChessMasterController.getDB().getSchedule();
 
-         Label startLabel = new Label("     Week 1      ");
-         startLabel.setFont(new Font("Georgia", 15));
-         startLabel.setUnderline(true);
-         vbox.getChildren().add(startLabel);
 
          ArrayList<TeamObject> allMatches = new ArrayList<>();
 
          for(int i = 1; i <= schedule.getTotalWeeks(); i++)
          {
             allMatches = schedule.getWeek(i).getAllMatches();
+            Label weekLabel = new Label();
+            weekLabel.setText(String.format("Week %d", i));
+            weekLabel.setFont(new Font("Georgia", 24));
+            weekLabel.setUnderline(true);
+            LeaderboardVBox.getChildren().add(weekLabel);
 
             for(int j = 0; j < allMatches.size() - 1; j++)
             {
                Label matchLabel = new Label();
-               matchLabel.setText(String.format("     %s vs %s%n%n", allMatches.get(j).getName(), allMatches.get(j+1).getName()));
-               matchLabel.setFont(new Font("Georgia", 15));
-               vbox.getChildren().add(matchLabel);
+               matchLabel.setText(String.format("%s vs %s", allMatches.get(j).getName(), allMatches.get(j+1).getName()));
+               matchLabel.setFont(new Font("Georgia", 20));
+               LeaderboardVBox.getChildren().add(matchLabel);
                j++;
-            }
-
-            if(i < schedule.getTotalWeeks())
-            {
-               Label weekLabel = new Label();
-               weekLabel.setText(String.format("     Week %d      %n", i+1));
-               weekLabel.setFont(new Font("Georgia", 15));
-               weekLabel.setUnderline(true);
-               vbox.getChildren().add(weekLabel);
             }
          }
       }

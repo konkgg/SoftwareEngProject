@@ -7,23 +7,19 @@ public class TeamListController {
 
     @FXML
     private VBox TeamListVBox;
+    
     private Label[] lineup;
 
    public void initialize() {
+      TeamListVBox.setSpacing(10);
       try {
-         Database data = new Database();
-         this.lineup = new Label[data.getTeamsList().size()];
+         this.lineup = new Label[ChessMasterController.getDB().getTeamsList().size()];
          
          //Adding Teams to VBox
-         for(int i = 0; i < data.getTeamsList().size(); i++) {
+         for(int i = 0; i < ChessMasterController.getDB().getTeamsList().size(); i++) {
             lineup[i] = new Label();
-            lineup[i].setFont(new Font("Georgia", 15));
-            
-           if(i%2 == 0)
-            lineup[i].setText("\n      " + data.getTeamsList().get(i).getName());
-           else
-            lineup[i].setText("|       " + data.getTeamsList().get(i).getName());
-            
+            lineup[i].setFont(new Font("Georgia", 20));
+            lineup[i].setText("• " + ChessMasterController.getDB().getTeamsList().get(i).getName());
             TeamListVBox.getChildren().add(lineup[i]);
          }
          

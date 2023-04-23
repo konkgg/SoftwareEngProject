@@ -23,8 +23,7 @@ public class LoginController {
 
     @FXML
     void loginPressed(ActionEvent event) throws IOException{
-        Database data = new Database();
-        ArrayList<Account> accountsList = data.getAccountsList();
+        ArrayList<Account> accountsList = ChessMasterController.getDB().getAccountsList();
         Account thisAccount = new Account("null", "null");
         boolean correctCredentials = false;
 

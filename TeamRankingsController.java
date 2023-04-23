@@ -11,20 +11,20 @@ public class TeamRankingsController {
 
    public void initialize() {
       try {
-         Database data = new Database();
-         this.leaderboard = new Label[data.getTeamsList().size()];
+         LeaderboardVBox.setSpacing(10);
+         this.leaderboard = new Label[ChessMasterController.getDB().getTeamsList().size()];
          
          //Sorting Teams by Score
-         for(int i = 0; i < data.getTeamsList().size(); i++) {
-            for(int j = 0; j < data.getTeamsList().size(); j++) {
+         for(int i = 0; i < ChessMasterController.getDB().getTeamsList().size(); i++) {
+            for(int j = 0; j < ChessMasterController.getDB().getTeamsList().size(); j++) {
                TeamObject newt;
                TeamObject oldt;
-               if (data.getTeamsList().get(i).getPoints() > data.getTeamsList().get(j).getPoints()) {
-                  newt = data.getTeamsList().get(j);
-                  oldt = data.getTeamsList().get(i);
+               if (ChessMasterController.getDB().getTeamsList().get(i).getPoints() > ChessMasterController.getDB().getTeamsList().get(j).getPoints()) {
+                  newt = ChessMasterController.getDB().getTeamsList().get(j);
+                  oldt = ChessMasterController.getDB().getTeamsList().get(i);
                   
-                  data.getTeamsList().set(j, oldt);
-                  data.getTeamsList().set(i, newt);
+                  ChessMasterController.getDB().getTeamsList().set(j, oldt);
+                  ChessMasterController.getDB().getTeamsList().set(i, newt);
                   
                   System.out.println("Swap");
                }
@@ -34,11 +34,12 @@ public class TeamRankingsController {
          }
          
          //Adding Teams to VBox
-         for(int i = 0; i < data.getTeamsList().size(); i++) {
+         for(int i = 0; i < ChessMasterController.getDB().getTeamsList().size(); i++) {
             leaderboard[i] = new Label();
-            leaderboard[i].setFont(new Font("Georgia", 15));
-            leaderboard[i].setText("\n      " + data.getTeamsList().get(i).getName() + " | Score: " + data.getTeamsList().get(i).getPoints() + "\n");
+            leaderboard[i].setFont(new Font("Georgia", 20));
+            leaderboard[i].setText(String.format("%d",i+1) + ". " + ChessMasterController.getDB().getTeamsList().get(i).getName() + " | Score: " + ChessMasterController.getDB().getTeamsList().get(i).getPoints());
             LeaderboardVBox.getChildren().add(leaderboard[i]);
+            
          }
          
       }
