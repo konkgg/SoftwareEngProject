@@ -28,6 +28,22 @@ public class LoginController {
     
      @FXML
     void RegiPressed(ActionEvent event) {
+    Account thisAccount = new Account("null", "null");
+         ChessMasterController.getDB().addAccount(usernameField1.getText(),passwordField1.getText(),false);
+        ArrayList<Account> accountsList = ChessMasterController.getDB().getAccountsList();
+        boolean correctCredentials = false;
+        for(int i = 0; i < accountsList.size(); i++)
+        {
+            if(accountsList.get(i).checkCredential(usernameField1.getText(), passwordField1.getText()))
+            {
+                thisAccount = accountsList.get(i);
+                correctCredentials = true;
+                break;
+            }
+        }
+        
+        ChessMasterController.updateAccount(thisAccount);
+        ChessMasterController.setUser();
 
     }
 

@@ -7,6 +7,7 @@ import java.io.IOException;
 import javafx.scene.layout.AnchorPane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import java.util.Timer;
 
 public class ChessMasterMain extends Application
 {
@@ -14,7 +15,8 @@ public class ChessMasterMain extends Application
    {
       try
       {
-      Parent root = FXMLLoader.load(getClass().getResource("ChessMasterFXML.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("ChessMasterFXML.fxml"));
+      Parent root = loader.load();
       Scene scene = new Scene(root);
       stage.setScene(scene);
       stage.setTitle("Chess Master");
@@ -25,6 +27,7 @@ public class ChessMasterMain extends Application
       {
          e.printStackTrace();
       }
+      Timer timer = new Timer();
       stage.setOnCloseRequest(event -> 
       {
     System.out.println("Stage is closing");

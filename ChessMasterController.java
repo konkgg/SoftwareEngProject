@@ -58,8 +58,6 @@ public class ChessMasterController {
     
     @FXML
 public void exitApplication(ActionEvent event) {
-   t.cancel(); 
-   tt.cancel();
    System.exit(0);
     ((Stage)masterPane.getScene().getWindow()).close();
     
@@ -70,6 +68,7 @@ public void exitApplication(ActionEvent event) {
       String bgColor = "#f20d43";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       HomeButton.setStyle(bstyle);
+      updateGreeting();
 
     }
 
@@ -78,13 +77,14 @@ public void exitApplication(ActionEvent event) {
       String bgColor = "#9D0628";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       HomeButton.setStyle(bstyle);
-
+updateGreeting();
     }
     @FXML
     void AccountEntered(MouseEvent event) {
 String bgColor = "#f20d43";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       AccountButton.setStyle(bstyle);
+      updateGreeting();
     }
 
     @FXML
@@ -92,12 +92,14 @@ String bgColor = "#f20d43";
 String bgColor = "#9D0628";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       AccountButton.setStyle(bstyle);
+      updateGreeting();
     }
     @FXML
     void RankingsEntered(MouseEvent event) {
 String bgColor = "#f20d43";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       RankingButton.setStyle(bstyle);
+      updateGreeting();
     }
 
     @FXML
@@ -105,12 +107,14 @@ String bgColor = "#f20d43";
 String bgColor = "#9D0628";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       RankingButton.setStyle(bstyle);
+      updateGreeting();
     }
     @FXML
     void ScheduleEntered(MouseEvent event) {
 String bgColor = "#f20d43";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       ScheduleButton.setStyle(bstyle);
+      updateGreeting();
     }
 
     @FXML
@@ -118,12 +122,14 @@ String bgColor = "#f20d43";
 String bgColor = "#9D0628";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       ScheduleButton.setStyle(bstyle);
+      updateGreeting();
     }
     @FXML
     void TeamsEntered(MouseEvent event) {
 String bgColor = "#f20d43";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       TeamsButton.setStyle(bstyle);
+      updateGreeting();
     }
 
     @FXML
@@ -131,6 +137,7 @@ String bgColor = "#f20d43";
 String bgColor = "#9D0628";
       String bstyle=String.format("-fx-background-color: %s;",bgColor);
       TeamsButton.setStyle(bstyle);
+      updateGreeting();
     }
     
     @FXML
@@ -178,8 +185,6 @@ String bgColor = "#9D0628";
     void mouseMoved(MouseEvent event) {
       updateGreeting();
     }
-    private Timer t;
-    private TimerTask tt;
     
    public void initialize()
    {
@@ -207,14 +212,6 @@ String bgColor = "#9D0628";
     {
       e.printStackTrace();
     }
-   t = new Timer();
-   tt = new TimerTask() {
-    @Override
-    public void run() {
-        updateGreeting();
-        };
-   };
-   t.schedule(tt,1000, 1000);
    }
    public void updateGreeting()
    {
