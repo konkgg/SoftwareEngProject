@@ -6,11 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 
 public class LoginController {
 
     @FXML
     private AnchorPane MainPane;
+
+    @FXML
+    private Button Regi;
 
     @FXML
     private Button loginButton1;
@@ -20,6 +25,11 @@ public class LoginController {
 
     @FXML
     private TextField usernameField1;
+    
+     @FXML
+    void RegiPressed(ActionEvent event) {
+
+    }
 
     @FXML
     void loginPressed(ActionEvent event) throws IOException{
@@ -39,9 +49,8 @@ public class LoginController {
 
         if(correctCredentials)
         {
-            System.out.println("Username:" + thisAccount.getUsername());
-            System.out.println("Password:" + thisAccount.getPassword());
-            System.out.println("Admin: " + thisAccount.checkAdmin());
+        ChessMasterController.updateAccount(thisAccount);
+        ChessMasterController.setUser();
         }
 
     }

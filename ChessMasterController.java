@@ -8,12 +8,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ScrollPane;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.stage.Stage;
+
 
 public class ChessMasterController {
 
    //Variables to change
    private String view;
-   private String user;
+   private static String user;
+   private static Account account;
    
    //used
    private AnchorPane loginPane;
@@ -48,6 +53,17 @@ public class ChessMasterController {
 
     @FXML
     private Label ViewLabel;
+     @FXML
+    private AnchorPane masterPane;
+    
+    @FXML
+public void exitApplication(ActionEvent event) {
+   t.cancel(); 
+   tt.cancel();
+   System.exit(0);
+    ((Stage)masterPane.getScene().getWindow()).close();
+    
+}
     
     @FXML
     void HomeEntered(MouseEvent event) {
@@ -144,7 +160,7 @@ String bgColor = "#9D0628";
 
     @FXML
     void TeamsButtonPressed(ActionEvent event) {
-      if(user == "admin")
+      if(account.checkAdmin())
       {
           StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamsAdminPane)).toFront();
       view = "Rankings";
@@ -158,6 +174,12 @@ String bgColor = "#9D0628";
       }
       
     }
+    @FXML
+    void mouseMoved(MouseEvent event) {
+      updateGreeting();
+    }
+    private Timer t;
+    private TimerTask tt;
     
    public void initialize()
    {
@@ -177,15 +199,36 @@ String bgColor = "#9D0628";
       TeamsAdminPane = (AnchorPane)loader.load();
       
       StackPaneView.getChildren().addAll(TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
+      view = "Account";
+      
     }
     catch(Exception e)
     {
       e.printStackTrace();
     }
-    GreetingLabel.setText("Welcome " + user);
-   
+   t = new Timer();
+   tt = new TimerTask() {
+    @Override
+    public void run() {
+        updateGreeting();
+        };
+   };
+   t.schedule(tt,1000, 1000);
+   }
+   public void updateGreeting()
+   {
+       GreetingLabel.setText("Welcome " + user);
    }
    
+   public static void setUser()
+   {
+      user = account.getUsername();
+      
+   }
+   public static void updateAccount(Account in)
+   {
+      account = in;
+   }
    public static Database getDB()
    {
       return db;

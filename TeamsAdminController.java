@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.FileWriter;
 import java.io.IOException;
+import javafx.stage.Stage;
 
 public class TeamsAdminController {
 

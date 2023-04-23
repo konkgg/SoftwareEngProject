@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import javafx.scene.layout.AnchorPane;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 public class ChessMasterMain extends Application
 {
@@ -23,10 +25,17 @@ public class ChessMasterMain extends Application
       {
          e.printStackTrace();
       }
+      stage.setOnCloseRequest(event -> 
+      {
+    System.out.println("Stage is closing");
+    System.exit(0);
+    }
+    );
    }
    public static void main(String[] args) 
    {
       launch(args);
    }
+   
 }
 
