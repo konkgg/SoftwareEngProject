@@ -126,9 +126,6 @@ String bgColor = "#9D0628";
 
     @FXML
     void HomeButtonPressed(ActionEvent event) {
-    StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamsAdminPane)).toFront();
-      view = "Rankings";
-      ViewLabel.setText(view);
     }
 
     @FXML
@@ -147,9 +144,19 @@ String bgColor = "#9D0628";
 
     @FXML
     void TeamsButtonPressed(ActionEvent event) {
+      if(user == "admin")
+      {
+          StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamsAdminPane)).toFront();
+      view = "Rankings";
+      ViewLabel.setText(view);
+      }
+      else
+      {
       StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamsPane)).toFront();
       view = "Teams";
       ViewLabel.setText(view);
+      }
+      
     }
     
    public void initialize()
@@ -169,7 +176,7 @@ String bgColor = "#9D0628";
       loader = new FXMLLoader(getClass().getResource("TeamsAdminFXML.fxml"));
       TeamsAdminPane = (AnchorPane)loader.load();
       
-      StackPaneView.getChildren().addAll(loginPane,TeamRankingsPane,SchedulePane,TeamsPane,TeamsAdminPane);
+      StackPaneView.getChildren().addAll(TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
     }
     catch(Exception e)
     {

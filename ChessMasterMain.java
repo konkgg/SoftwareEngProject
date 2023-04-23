@@ -16,6 +16,7 @@ public class ChessMasterMain extends Application
       Scene scene = new Scene(root);
       stage.setScene(scene);
       stage.setTitle("Chess Master");
+      stage.setResizable(false);
       stage.show();
       }
       catch(Exception e)
