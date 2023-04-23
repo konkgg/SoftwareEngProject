@@ -200,6 +200,7 @@ String bgColor = "#9D0628";
       
       StackPaneView.getChildren().addAll(TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
       view = "Account";
+      account = new Account("Guest","");
       
     }
     catch(Exception e)
