@@ -143,6 +143,7 @@ String bgColor = "#9D0628";
     
     @FXML
     void AccountButtonPressed(ActionEvent event) {
+    updateDB();
       StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(loginPane)).toFront();
       view = "Account";
       ViewLabel.setText(view);
@@ -154,6 +155,7 @@ String bgColor = "#9D0628";
 
     @FXML
     void RankingButtonPressed(ActionEvent event) {
+    updateDB();
       StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamRankingsPane)).toFront();
       view = "Rankings";
       ViewLabel.setText(view);
@@ -161,6 +163,7 @@ String bgColor = "#9D0628";
 
     @FXML
     void ScheduleButtonPressed(ActionEvent event) {
+    updateDB();
     if(account.checkAdmin())
     {
       StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(ScheduleAdmin)).toFront();
@@ -177,6 +180,7 @@ String bgColor = "#9D0628";
 
     @FXML
     void TeamsButtonPressed(ActionEvent event) {
+    updateDB();
       if(account.checkAdmin())
       {
           StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(TeamsAdminPane)).toFront();
