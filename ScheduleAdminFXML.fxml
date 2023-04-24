@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleAdminController">
+   <children>
+      <ScrollPane prefHeight="515.0" prefViewportHeight="500.0" prefViewportWidth="550.0" prefWidth="550.0">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="550.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="1300.0" stroke="#f40000" strokeType="INSIDE" strokeWidth="0.0" width="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="tourneyNameLabel" layoutX="189.0" layoutY="14.0" text="Schedule Admin">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="LeaderboardVBox1" layoutX="14.0" layoutY="80.0" prefHeight="1220.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="80.0" />
+                  <Button fx:id="UpdateButton" layoutX="435.0" layoutY="19.0" mnemonicParsing="false" onAction="#UpdateGenerateButtonPressed" text="Update" />
+                  <VBox fx:id="LeaderboardVBox2" layoutX="189.0" layoutY="80.0" prefHeight="1220.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" />
+                  <Button fx:id="GenerateButton" layoutX="418.0" layoutY="55.0" mnemonicParsing="false" onAction="#UpdateButtonPressed" text="AutoGenerate" />
+                  <Label layoutX="158.0" layoutY="47.0" text="Please Close and reopen to finalize Changes" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

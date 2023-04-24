@@ -26,6 +26,7 @@ public class ChessMasterController {
    private AnchorPane SchedulePane;
    private AnchorPane TeamsPane;
    private AnchorPane TeamsAdminPane;
+   private AnchorPane ScheduleAdmin;
    
    protected static Database db;
    
@@ -160,9 +161,18 @@ String bgColor = "#9D0628";
 
     @FXML
     void ScheduleButtonPressed(ActionEvent event) {
-      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(SchedulePane)).toFront();
+    if(account.checkAdmin())
+    {
+      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(ScheduleAdmin)).toFront();
       view = "Schedule";
       ViewLabel.setText(view);
+      }
+    else
+    {
+    StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(SchedulePane)).toFront();
+      view = "Schedule";
+      ViewLabel.setText(view);
+    }
     }
 
     @FXML
@@ -202,8 +212,10 @@ String bgColor = "#9D0628";
       TeamsPane = (AnchorPane)loader.load();
       loader = new FXMLLoader(getClass().getResource("TeamsAdminFXML.fxml"));
       TeamsAdminPane = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("ScheduleAdminFXML.fxml"));
+      ScheduleAdmin = (AnchorPane)loader.load();
       
-      StackPaneView.getChildren().addAll(TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
+      StackPaneView.getChildren().addAll(ScheduleAdmin,TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
       view = "Account";
       account = new Account("Guest","");
       
