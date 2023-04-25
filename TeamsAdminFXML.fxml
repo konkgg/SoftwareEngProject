@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamsAdminController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamsAdminController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="500.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="550.0" />
       <Label layoutX="208.0" layoutY="14.0" text="Teams Admin">
@@ -19,5 +19,7 @@
       <VBox fx:id="PointsButtons" layoutX="462.0" layoutY="80.0" prefHeight="420.0" prefWidth="74.0" spacing="8.0" AnchorPane.rightAnchor="20.0" />
       <VBox fx:id="PointsFields" layoutX="375.0" layoutY="80.0" prefHeight="420.0" prefWidth="74.0" spacing="8.0" AnchorPane.rightAnchor="100.0" />
       <Label layoutX="165.0" layoutY="49.0" text="Please Close and reopen to finalize changes" />
+      <Label layoutX="37.0" layoutY="58.0" text="Teams" />
+      <Label layoutX="413.0" layoutY="58.0" text="Points" />
    </children>
 </AnchorPane>
