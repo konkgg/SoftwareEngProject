@@ -58,12 +58,12 @@ public class TeamsAdminController {
             data = "";
                  for(int i = 0; i < 10; i++)
    {
-      if(Teams[i].getText() != "")
+      if(!Teams[i].getText().equals(""))
       {
          data+=Teams[i].getText() + ",";
          if(Points[i].getText() != null)
             data+=Points[i].getText();
-         if(Points[i].getText() == "")
+         if(Points[i].getText().equals(""))
             data += "0";
          data+="\n";
       }
