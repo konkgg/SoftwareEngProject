@@ -27,6 +27,7 @@ public class ChessMasterController {
    private AnchorPane TeamsPane;
    private AnchorPane TeamsAdminPane;
    private AnchorPane ScheduleAdmin;
+   private AnchorPane Home;
    
    protected static Database db;
    
@@ -151,6 +152,10 @@ String bgColor = "#9D0628";
 
     @FXML
     void HomeButtonPressed(ActionEvent event) {
+    updateDB();
+      StackPaneView.getChildren().get(StackPaneView.getChildren().indexOf(Home)).toFront();
+      view = "Home";
+      ViewLabel.setText(view);
     }
 
     @FXML
@@ -218,8 +223,10 @@ String bgColor = "#9D0628";
       TeamsAdminPane = (AnchorPane)loader.load();
       loader = new FXMLLoader(getClass().getResource("ScheduleAdminFXML.fxml"));
       ScheduleAdmin = (AnchorPane)loader.load();
+      loader = new FXMLLoader(getClass().getResource("HomeFXML.fxml"));
+      Home = (AnchorPane)loader.load();
       
-      StackPaneView.getChildren().addAll(ScheduleAdmin,TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane);
+      StackPaneView.getChildren().addAll(ScheduleAdmin,TeamsAdminPane,TeamRankingsPane,SchedulePane,TeamsPane,loginPane,Home);
       view = "Account";
       account = new Account("Guest","");
       
