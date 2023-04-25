@@ -21,10 +21,12 @@
                      </font>
                   </Label>
                   <VBox fx:id="LeaderboardVBox1" layoutX="14.0" layoutY="80.0" prefHeight="1220.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="390.0" AnchorPane.topAnchor="80.0" />
-                  <Button fx:id="UpdateButton" layoutX="435.0" layoutY="19.0" mnemonicParsing="false" onAction="#UpdateGenerateButtonPressed" text="Update" />
+                  <Button fx:id="UpdateButton" layoutX="391.0" layoutY="209.0" mnemonicParsing="false" onAction="#UpdateGenerateButtonPressed" text="Update" />
                   <VBox fx:id="LeaderboardVBox2" layoutX="189.0" layoutY="80.0" prefHeight="1220.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" />
-                  <Button fx:id="GenerateButton" layoutX="418.0" layoutY="55.0" mnemonicParsing="false" onAction="#UpdateButtonPressed" text="AutoGenerate" />
+                  <Button fx:id="GenerateButton" layoutX="374.0" layoutY="251.0" mnemonicParsing="false" onAction="#UpdateButtonPressed" text="AutoGenerate" />
                   <Label layoutX="158.0" layoutY="47.0" text="Please Close and reopen to finalize Changes" />
+                  <Label layoutX="311.0" layoutY="72.0" text="Manuel Schedule Function Coming soon" />
+                  <Label layoutX="329.0" layoutY="89.0" text="For now only autoGenerate works" />
                </children>
             </AnchorPane>
          </content>
