@@ -82,6 +82,11 @@
                   <Insets bottom="6.0" left="6.0" right="6.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="Regi" mnemonicParsing="false" onAction="#RegiPressed" text="Register">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </children>
