@@ -27,7 +27,7 @@ def save_users():
         for username, password in users.items():
             writer.writerow([username, password])
 
-filename = 'scoreboard.csv'
+filename = 'teams.csv'
 try:
     with open(filename, 'r') as file:
         reader = csv.reader(file)
